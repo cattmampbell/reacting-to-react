@@ -53,7 +53,7 @@ class App extends Component {
     } else {
       return(
         <React.Fragment>
-          <h1 class="loading-header">Loading...</h1>
+          <h1 className="loading-header">Loading...</h1>
           <button onClick={ this.handleButtonClick }>Click Me</button>
           {/* <h2>{ this.state.hasLoaded.toString().toUpperCase() }</h2> */}
         </React.Fragment>
