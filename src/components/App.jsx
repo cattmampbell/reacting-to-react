@@ -4,7 +4,7 @@ import '../App.css';
 // Functional 'App' Component
 // const App = (props) => {
 //   return(
-//     <h1>{props.headerText}</h1>
+//     <h1>{props.header}</h1>
 //   )
 // }
 
@@ -13,9 +13,10 @@ class App extends Component {
     super(props);
 
     this.state = {
-      headerText: props.headerText,
+      header: props.header,
       text: 'Type a Color!',
-      color: 'black'
+      color: ' ',
+      hasLoaded: false
     }
   }
 
@@ -23,19 +24,20 @@ class App extends Component {
     this.setState({ color: event.target.value })
   }
 
-  render() {
-    const h1style = {
-      color: this.state.color
-    }
+  handleButtonClick = () => {
+    this.setState({ hasLoaded: !this.state.hasLoaded })
+  }
 
+  render() {
     return(
       <React.Fragment>
-        <h1 style={h1style}>{this.state.headerText + ', ' + this.state.text}</h1>
+        <h1 style={{color: this.state.color}}>{this.state.header + ', ' + this.state.text}</h1>
         <input 
           placeholder={this.state.text}
-          // onChange={(event) => this.setState({ text: event.target.value }) }
           onChange={ this.handleInputChange }
         />
+        <button onClick={this.handleButtonClick}>Click Me</button>
+        <h2>{this.state.hasLoaded.toString().toUpperCase()}</h2>
       </React.Fragment>
     )
   }
