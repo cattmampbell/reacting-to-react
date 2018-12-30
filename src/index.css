@@ -16,3 +16,32 @@ code {
   display: inline;
   margin-left: 50%;
 }
+
+input, 
+button {
+  padding: .5rem;
+  border-radius: .5rem;
+}
+
+input {
+  width: 10rem;
+  height: 1.15rem;
+  border-color: rgb(119, 128, 136);
+  border-style: solid;
+  border-width: 1px;
+  font-size: .75rem;
+}
+
+button {
+  margin-left: 1rem;
+  background-color: rgb(5, 134, 255);
+  font-size: 1rem;
+  color: rgb(248, 249, 250);
+  width: 7.5rem; 
+  height: 2.5rem;
+  box-shadow: 0px;
+}
+
+h2 {
+  color: rgb(119, 128, 136);
+}
