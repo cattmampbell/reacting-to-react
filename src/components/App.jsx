@@ -14,13 +14,29 @@ class App extends Component {
 
     this.state = {
       headerText: props.headerText,
-      text: 'Welcome to React!' 
+      text: 'Type a Color!',
+      color: 'black'
     }
   }
 
+  handleInputChange = (event) => {
+    this.setState({ color: event.target.value })
+  }
+
   render() {
+    const h1style = {
+      color: this.state.color
+    }
+
     return(
-      <h1>{ `${this.state.headerText} ${this.state.text}` }</h1>
+      <React.Fragment>
+        <h1 style={h1style}>{this.state.headerText + ', ' + this.state.text}</h1>
+        <input 
+          placeholder={this.state.text}
+          // onChange={(event) => this.setState({ text: event.target.value }) }
+          onChange={ this.handleInputChange }
+        />
+      </React.Fragment>
     )
   }
 }
