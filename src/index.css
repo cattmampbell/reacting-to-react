@@ -42,6 +42,10 @@ button {
   box-shadow: 0px;
 }
 
+.loading-header {
+  color: rgba(108, 117, 125, 0.750);
+}
+
 h2 {
   color: rgb(119, 128, 136);
 }
