@@ -25,21 +25,40 @@ class App extends Component {
   }
 
   handleButtonClick = () => {
-    this.setState({ hasLoaded: !this.state.hasLoaded })
+    this.setState(previousState => ({ 
+      hasLoaded: !previousState.hasLoaded 
+    }))
+  }
+
+  componentDidMount = () => {
+    this.setState({ hasLoaded: true })
   }
 
   render() {
-    return(
-      <React.Fragment>
-        <h1 style={{color: this.state.color}}>{this.state.header + ', ' + this.state.text}</h1>
-        <input 
-          placeholder={this.state.text}
-          onChange={ this.handleInputChange }
-        />
-        <button onClick={this.handleButtonClick}>Click Me</button>
-        <h2>{this.state.hasLoaded.toString().toUpperCase()}</h2>
-      </React.Fragment>
-    )
+    if (this.state.hasLoaded === true) {
+      return(
+        <React.Fragment>
+          <h1 style={ {color: this.state.color} }>
+            { this.state.header + ', ' + this.state.text }
+          </h1>
+          <input 
+            type="text"
+            placeholder={ this.state.text }
+            onChange={ this.handleInputChange }
+          />
+          <button onClick={ this.handleButtonClick }>Click Me</button>
+          {/* <h2>{ this.state.hasLoaded.toString().toUpperCase() }</h2> */}
+        </React.Fragment>
+      )
+    } else {
+      return(
+        <React.Fragment>
+          <h1 class="loading-header">Loading...</h1>
+          <button onClick={ this.handleButtonClick }>Click Me</button>
+          {/* <h2>{ this.state.hasLoaded.toString().toUpperCase() }</h2> */}
+        </React.Fragment>
+      )
+    }
   }
 }
 
